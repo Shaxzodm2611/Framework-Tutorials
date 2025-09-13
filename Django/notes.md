@@ -15,12 +15,25 @@ Views (that are to be accessible by the user) must be mapped to a URL configurat
 
 This URLconf must be added to the projects root URLconf in: `../tutorial/tutorial/urls.py`
 
-From Django tutorial:
+From Djangos tutorial:
 
 ```
-The idea behind include() is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.
+The idea behind include() is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), 
+they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.
 ```
 
+# Interesting Behaviours of the Migrate Function
 
+Estentially *maps* out or rather builds the neccesary DB's for apps located in `../settings.py`
 
+Apps are inherently modular.
 
+Django also auto-creates the database (SQlite3 by default [configurable]), schema can be created in the `../app/models.py` directory
+
+```Python
+
+class Schema(models.Model):
+    .
+    .
+    .
+```
