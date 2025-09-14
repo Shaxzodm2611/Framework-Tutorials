@@ -37,3 +37,34 @@ class Schema(models.Model):
     .
     .
 ```
+
+# Part 3 - Code
+
+### View & Urls
+
+Takes in Param :: question_id, returns the question_id to a web-page (pretty boring but the url is interesting)
+
+in `\tutorial\polls\urls.py` -> we link the views back to a url: `\polls\question_id\view`
+
+We pass a list of most recently published Question objects back to index.html, we index through the list and return each question_id and pass it on-to /polls/question_id
+
+This calls the detail view: `/polls/#question_id#` because of:
+
+```Python
+# @ ../polls/{ question-id }
+
+urlpatterns = [
+    path("", views.index, name="index"),
+    path("<int:question_id>/", views.details, name="details"),
+
+
+# @ 
+```
+
+# Part 5 - Generic Views
+
+Abstract away common web-development cases such as: representing .db values
+
+> We use pk instead of the question_id as the base class DetailView requires the primary key to be passed
+
+Each generic view needs to know what object it is acting on
